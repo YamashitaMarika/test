@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>未経験歓迎の求人サイト | はたらくチャンス</title>
+    <style>
+      :root {
+        --bg: #f7f9fc;
+        --card: #ffffff;
+        --primary: #1f6feb;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --accent: #16a34a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: min(1100px, 92%);
+        margin: 0 auto;
+      }
+
+      header {
+        background: var(--card);
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--primary);
+      }
+
+      .hero {
+        padding: 72px 0 56px;
+      }
+
+      .hero-box {
+        background: linear-gradient(135deg, #eef4ff, #f6ffef);
+        border: 1px solid #e6edf7;
+        border-radius: 16px;
+        padding: 48px 32px;
+      }
+
+      .badge {
+        display: inline-block;
+        background: #dff4e5;
+        color: #0f6b2f;
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 6px 12px;
+        border-radius: 999px;
+        margin-bottom: 14px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        line-height: 1.25;
+      }
+
+      .highlight {
+        color: var(--accent);
+      }
+
+      .sub {
+        margin-top: 14px;
+        color: var(--muted);
+        max-width: 680px;
+      }
+
+      .cta-wrap {
+        margin-top: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-weight: 700;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .btn-secondary {
+        background: #fff;
+        color: var(--primary);
+        border: 1px solid #c9d8f5;
+      }
+
+      .features {
+        padding: 32px 0 72px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 18px;
+      }
+
+      .card h3 {
+        margin: 0 0 8px;
+        font-size: 1rem;
+      }
+
+      .jobs {
+        padding-bottom: 80px;
+      }
+
+      .jobs h2 {
+        margin-bottom: 16px;
+      }
+
+      .job-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .job-item {
+        background: var(--card);
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 16px;
+      }
+
+      .job-item strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      footer {
+        padding: 20px 0 36px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="logo">はたらくチャンス</div>
+        <a class="btn btn-secondary" href="#jobs">求人を探す</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-box">
+          <span class="badge">未経験大歓迎</span>
+          <h1>
+            シンプルに仕事探し。<br />
+            <span class="highlight">誰でも稼げる</span>お仕事を見つけよう
+          </h1>
+          <p class="sub">
+            はじめての方でも安心。研修あり・サポート充実の求人を厳選掲載。
+            自分に合った働き方で、今すぐ収入アップを目指せます。
+          </p>
+          <div class="cta-wrap">
+            <a class="btn btn-primary" href="#jobs">今すぐ求人を見る</a>
+            <a class="btn btn-secondary" href="#support">無料サポートを受ける</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="features" id="support">
+        <div class="container grid">
+          <article class="card">
+            <h3>履歴書サポート</h3>
+            <p>応募書類が初めてでも大丈夫。作成のポイントを丁寧に案内します。</p>
+          </article>
+          <article class="card">
+            <h3>即日応募OK</h3>
+            <p>気になる求人には最短1分で応募可能。スピーディーに仕事開始へ。</p>
+          </article>
+          <article class="card">
+            <h3>未経験向け求人多数</h3>
+            <p>経験不問・学歴不問の求人を中心に掲載。まずは一歩を踏み出せます。</p>
+          </article>
+          <article class="card">
+            <h3>高時給案件あり</h3>
+            <p>しっかり稼ぎたい方へ。短期間で収入アップを目指せる仕事も掲載中。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="jobs" id="jobs">
+        <div class="container">
+          <h2>おすすめ求人</h2>
+          <div class="job-list">
+            <article class="job-item">
+              <strong>軽作業スタッフ（未経験歓迎）</strong>
+              <span>時給1,500円〜 / 日払い可 / 週3日〜OK</span>
+            </article>
+            <article class="job-item">
+              <strong>コールセンター（研修あり）</strong>
+              <span>時給1,700円〜 / マニュアル完備 / 駅チカ</span>
+            </article>
+            <article class="job-item">
+              <strong>データ入力事務（PC初級OK）</strong>
+              <span>時給1,600円〜 / 土日休み / 在宅相談可</span>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2026 はたらくチャンス</footer>
+  </body>
+</html>
