@@ -27,24 +27,40 @@
       }
 
       .container {
-        width: min(1100px, 92%);
+        width: min(100%, 1120px);
+        padding-inline: 14px;
         margin: 0 auto;
       }
 
       header {
         background: var(--card);
         border-bottom: 1px solid #e5e7eb;
+        position: sticky;
+        top: 0;
+        z-index: 10;
       }
 
       .nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 10px;
+        padding: 10px 0;
         padding: 14px 0;
       }
 
       .logo {
         font-weight: 700;
+        font-size: 1rem;
+        color: var(--primary);
+      }
+
+      .top-visual {
+        padding-top: 10px;
+      }
+
+      .visual-wrap {
+        border-radius: 12px;
         font-size: 1.2rem;
         color: var(--primary);
       }
@@ -67,11 +83,32 @@
 
       .visual-wrap img {
         width: 100%;
+        height: 220px;
         height: clamp(220px, 36vw, 430px);
         object-fit: cover;
         display: block;
       }
 
+      .hero {
+        padding: 14px 0 30px;
+      }
+
+
+      .hero-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .hero-side-card {
+        display: none;
+      }
+
+      .hero-box {
+        background: linear-gradient(135deg, #eef4ff, #f6ffef);
+        border: 1px solid #e6edf7;
+        border-radius: 14px;
+        padding: 24px 16px;
       .hero-box {
         background: linear-gradient(135deg, #eef4ff, #f6ffef);
         border: 1px solid #e6edf7;
@@ -83,6 +120,11 @@
         display: inline-block;
         background: #dff4e5;
         color: #0f6b2f;
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 5px 10px;
+        border-radius: 999px;
+        margin-bottom: 10px;
         font-size: 0.85rem;
         font-weight: 700;
         padding: 6px 12px;
@@ -92,6 +134,8 @@
 
       h1 {
         margin: 0;
+        font-size: 1.6rem;
+        line-height: 1.35;
         font-size: clamp(1.8rem, 4vw, 2.8rem);
         line-height: 1.25;
       }
@@ -101,6 +145,15 @@
       }
 
       .sub {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .cta-wrap {
+        margin-top: 18px;
+        display: grid;
+        gap: 10px;
         margin-top: 14px;
         color: var(--muted);
         max-width: 680px;
@@ -116,6 +169,12 @@
       .btn {
         display: inline-block;
         text-decoration: none;
+        padding: 12px 14px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-align: center;
+        white-space: nowrap;
         padding: 12px 18px;
         border-radius: 10px;
         font-weight: 700;
@@ -133,11 +192,14 @@
       }
 
       .features {
+        padding: 14px 0 36px;
         padding: 32px 0 72px;
       }
 
       .grid {
         display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 14px;
       }
@@ -146,6 +208,26 @@
         background: var(--card);
         border: 1px solid #e5e7eb;
         border-radius: 12px;
+        padding: 14px;
+      }
+
+      .card h3 {
+        margin: 0 0 6px;
+        font-size: 1rem;
+      }
+
+      .card p {
+        margin: 0;
+        font-size: 0.92rem;
+      }
+
+      .jobs {
+        padding-bottom: 90px;
+      }
+
+      .jobs h2 {
+        margin: 0 0 12px;
+        font-size: 1.2rem;
         padding: 18px;
       }
 
@@ -164,6 +246,7 @@
 
       .job-list {
         display: grid;
+        gap: 10px;
         gap: 12px;
       }
 
@@ -171,11 +254,118 @@
         background: var(--card);
         border: 1px solid #e5e7eb;
         border-radius: 10px;
+        padding: 14px;
         padding: 16px;
       }
 
       .job-item strong {
         display: block;
+        margin-bottom: 4px;
+        font-size: 0.98rem;
+      }
+
+      .job-item span {
+        font-size: 0.9rem;
+        color: #374151;
+      }
+
+      .sp-fixed-cta {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(247, 249, 252, 0.95);
+        border-top: 1px solid #e5e7eb;
+      }
+
+      .sp-fixed-cta .btn {
+        width: 100%;
+      }
+
+      footer {
+        padding: 20px 0 34px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.8rem;
+      }
+
+      @media (min-width: 768px) {
+        .nav {
+          padding: 12px 0;
+        }
+
+        .container {
+          padding-inline: 24px;
+        }
+
+        .logo {
+          font-size: 1.2rem;
+        }
+
+        .visual-wrap img {
+          height: clamp(260px, 36vw, 430px);
+        }
+
+        .hero {
+          padding: 30px 0 56px;
+        }
+
+        .hero-layout {
+          grid-template-columns: 1.2fr 0.8fr;
+          align-items: stretch;
+        }
+
+        .hero-box {
+          border-radius: 16px;
+          padding: 48px 32px;
+        }
+
+        h1 {
+          font-size: clamp(1.9rem, 4vw, 2.8rem);
+          line-height: 1.25;
+        }
+
+        .cta-wrap {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+
+        .grid {
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 14px;
+        }
+
+        .jobs {
+          padding-bottom: 80px;
+        }
+
+        .hero-side-card {
+          background: #ffffff;
+          border: 1px solid #e5e7eb;
+          border-radius: 16px;
+          padding: 20px;
+        }
+
+        .hero-side-card h3 {
+          margin: 0 0 10px;
+          font-size: 1rem;
+        }
+
+        .hero-side-card ul {
+          margin: 0;
+          padding-left: 18px;
+          color: #374151;
+        }
+
+        .hero-side-card li + li {
+          margin-top: 8px;
+        }
+
+        .sp-fixed-cta {
+          display: none;
+        }
         margin-bottom: 6px;
       }
 
@@ -207,6 +397,8 @@
       </section>
 
       <section class="hero">
+        <div class="container hero-layout">
+          <div class="hero-box">
         <div class="container hero-box">
           <span class="badge">未経験大歓迎</span>
           <h1>
@@ -221,6 +413,15 @@
             <a class="btn btn-primary" href="#jobs">今すぐ求人を見る</a>
             <a class="btn btn-secondary" href="#support">無料サポートを受ける</a>
           </div>
+          </div>
+          <aside class="hero-side-card">
+            <h3>はじめてでも安心の3ポイント</h3>
+            <ul>
+              <li>登録は1分、スマホだけで完了</li>
+              <li>未経験向けの研修付き求人を優先表示</li>
+              <li>日払い・週払い対応の案件が豊富</li>
+            </ul>
+          </aside>
         </div>
       </section>
 
@@ -265,6 +466,10 @@
         </div>
       </section>
     </main>
+
+    <div class="sp-fixed-cta">
+      <a class="btn btn-primary" href="#jobs">スマホでかんたん応募</a>
+    </div>
 
     <footer>© 2026 はたらくチャンス</footer>
   </body>
