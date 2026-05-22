@@ -46,6 +46,7 @@
         justify-content: space-between;
         gap: 10px;
         padding: 10px 0;
+        padding: 14px 0;
       }
 
       .logo {
@@ -60,6 +61,21 @@
 
       .visual-wrap {
         border-radius: 12px;
+        font-size: 1.2rem;
+        color: var(--primary);
+      }
+
+      .hero {
+        padding: 40px 0 56px;
+      }
+
+
+      .top-visual {
+        padding-top: 18px;
+      }
+
+      .visual-wrap {
+        border-radius: 14px;
         overflow: hidden;
         border: 1px solid #e5e7eb;
         background: #fff;
@@ -68,6 +84,7 @@
       .visual-wrap img {
         width: 100%;
         height: 220px;
+        height: clamp(220px, 36vw, 430px);
         object-fit: cover;
         display: block;
       }
@@ -92,6 +109,11 @@
         border: 1px solid #e6edf7;
         border-radius: 14px;
         padding: 24px 16px;
+      .hero-box {
+        background: linear-gradient(135deg, #eef4ff, #f6ffef);
+        border: 1px solid #e6edf7;
+        border-radius: 16px;
+        padding: 48px 32px;
       }
 
       .badge {
@@ -103,12 +125,19 @@
         padding: 5px 10px;
         border-radius: 999px;
         margin-bottom: 10px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 6px 12px;
+        border-radius: 999px;
+        margin-bottom: 14px;
       }
 
       h1 {
         margin: 0;
         font-size: 1.6rem;
         line-height: 1.35;
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        line-height: 1.25;
       }
 
       .highlight {
@@ -125,6 +154,16 @@
         margin-top: 18px;
         display: grid;
         gap: 10px;
+        margin-top: 14px;
+        color: var(--muted);
+        max-width: 680px;
+      }
+
+      .cta-wrap {
+        margin-top: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
       }
 
       .btn {
@@ -136,6 +175,9 @@
         font-size: 0.95rem;
         text-align: center;
         white-space: nowrap;
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-weight: 700;
       }
 
       .btn-primary {
@@ -151,12 +193,15 @@
 
       .features {
         padding: 14px 0 36px;
+        padding: 32px 0 72px;
       }
 
       .grid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
       }
 
       .card {
@@ -183,11 +228,26 @@
       .jobs h2 {
         margin: 0 0 12px;
         font-size: 1.2rem;
+        padding: 18px;
+      }
+
+      .card h3 {
+        margin: 0 0 8px;
+        font-size: 1rem;
+      }
+
+      .jobs {
+        padding-bottom: 80px;
+      }
+
+      .jobs h2 {
+        margin-bottom: 16px;
       }
 
       .job-list {
         display: grid;
         gap: 10px;
+        gap: 12px;
       }
 
       .job-item {
@@ -195,6 +255,7 @@
         border: 1px solid #e5e7eb;
         border-radius: 10px;
         padding: 14px;
+        padding: 16px;
       }
 
       .job-item strong {
@@ -305,6 +366,14 @@
         .sp-fixed-cta {
           display: none;
         }
+        margin-bottom: 6px;
+      }
+
+      footer {
+        padding: 20px 0 36px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.9rem;
       }
     </style>
   </head>
@@ -330,6 +399,7 @@
       <section class="hero">
         <div class="container hero-layout">
           <div class="hero-box">
+        <div class="container hero-box">
           <span class="badge">未経験大歓迎</span>
           <h1>
             シンプルに仕事探し。<br />
