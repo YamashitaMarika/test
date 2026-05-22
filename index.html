@@ -50,7 +50,26 @@
       }
 
       .hero {
-        padding: 72px 0 56px;
+        padding: 40px 0 56px;
+      }
+
+
+      .top-visual {
+        padding-top: 18px;
+      }
+
+      .visual-wrap {
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid #e5e7eb;
+        background: #fff;
+      }
+
+      .visual-wrap img {
+        width: 100%;
+        height: clamp(220px, 36vw, 430px);
+        object-fit: cover;
+        display: block;
       }
 
       .hero-box {
@@ -177,6 +196,16 @@
     </header>
 
     <main>
+      <section class="top-visual" aria-label="メインビジュアル">
+        <div class="container visual-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80"
+            alt="働く人たちが集まり笑顔で打ち合わせする様子"
+            loading="eager"
+          />
+        </div>
+      </section>
+
       <section class="hero">
         <div class="container hero-box">
           <span class="badge">未経験大歓迎</span>
