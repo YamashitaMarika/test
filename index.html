@@ -27,7 +27,7 @@
       }
 
       .container {
-        width: min(100%, 1100px);
+        width: min(100%, 1120px);
         padding-inline: 14px;
         margin: 0 auto;
       }
@@ -44,6 +44,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 10px;
         padding: 10px 0;
       }
 
@@ -73,6 +74,17 @@
 
       .hero {
         padding: 14px 0 30px;
+      }
+
+
+      .hero-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .hero-side-card {
+        display: none;
       }
 
       .hero-box {
@@ -123,6 +135,7 @@
         font-weight: 700;
         font-size: 0.95rem;
         text-align: center;
+        white-space: nowrap;
       }
 
       .btn-primary {
@@ -217,6 +230,10 @@
       }
 
       @media (min-width: 768px) {
+        .nav {
+          padding: 12px 0;
+        }
+
         .container {
           padding-inline: 24px;
         }
@@ -231,6 +248,11 @@
 
         .hero {
           padding: 30px 0 56px;
+        }
+
+        .hero-layout {
+          grid-template-columns: 1.2fr 0.8fr;
+          align-items: stretch;
         }
 
         .hero-box {
@@ -256,6 +278,28 @@
 
         .jobs {
           padding-bottom: 80px;
+        }
+
+        .hero-side-card {
+          background: #ffffff;
+          border: 1px solid #e5e7eb;
+          border-radius: 16px;
+          padding: 20px;
+        }
+
+        .hero-side-card h3 {
+          margin: 0 0 10px;
+          font-size: 1rem;
+        }
+
+        .hero-side-card ul {
+          margin: 0;
+          padding-left: 18px;
+          color: #374151;
+        }
+
+        .hero-side-card li + li {
+          margin-top: 8px;
         }
 
         .sp-fixed-cta {
@@ -284,7 +328,8 @@
       </section>
 
       <section class="hero">
-        <div class="container hero-box">
+        <div class="container hero-layout">
+          <div class="hero-box">
           <span class="badge">未経験大歓迎</span>
           <h1>
             シンプルに仕事探し。<br />
@@ -298,6 +343,15 @@
             <a class="btn btn-primary" href="#jobs">今すぐ求人を見る</a>
             <a class="btn btn-secondary" href="#support">無料サポートを受ける</a>
           </div>
+          </div>
+          <aside class="hero-side-card">
+            <h3>はじめてでも安心の3ポイント</h3>
+            <ul>
+              <li>登録は1分、スマホだけで完了</li>
+              <li>未経験向けの研修付き求人を優先表示</li>
+              <li>日払い・週払い対応の案件が豊富</li>
+            </ul>
+          </aside>
         </div>
       </section>
 
