@@ -106,42 +106,40 @@
         background: #101010;
       }
 
-      .hero-video {
+      .hero-video-frame {
         position: absolute;
-        inset: 0;
+        inset: clamp(18px, 3.4vw, 48px);
         z-index: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.72;
-      }
-
-      .hero::before {
-        position: absolute;
-        inset: clamp(16px, 3vw, 36px);
-        z-index: 2;
-        content: "";
-        border: 2px solid rgba(255, 255, 255, 0.82);
-        border-radius: clamp(18px, 3vw, 34px);
+        overflow: hidden;
+        background: #fff;
+        border: clamp(10px, 1.6vw, 22px) solid rgba(255, 255, 255, 0.94);
+        border-radius: clamp(26px, 4vw, 48px);
         box-shadow:
           inset 0 0 0 1px rgba(22, 22, 22, 0.18),
-          0 24px 70px rgba(0, 0, 0, 0.28);
-        pointer-events: none;
+          0 28px 80px rgba(0, 0, 0, 0.36);
       }
 
-      .hero::after {
+      .hero-video-frame::after {
         position: absolute;
         inset: 0;
-        z-index: 1;
         content: "";
         background:
           linear-gradient(90deg, rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.18)),
           linear-gradient(0deg, rgba(0, 0, 0, 0.34), transparent 45%);
+        pointer-events: none;
+      }
+
+      .hero-video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.78;
       }
 
       .hero-content {
         position: relative;
-        z-index: 3;
+        z-index: 1;
         width: min(1120px, calc(100% - 32px));
         padding: clamp(28px, 6vw, 56px) 0 96px;
       }
@@ -360,15 +358,17 @@
 
     <main id="top">
       <section class="hero" aria-label="ファーストビュー">
-        <video
-          class="hero-video"
-          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-          autoplay
-          muted
-          loop
-          playsinline
-          poster="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1600&q=80"
-        ></video>
+        <div class="hero-video-frame" aria-hidden="true">
+          <video
+            class="hero-video"
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1600&q=80"
+          ></video>
+        </div>
         <div class="hero-content">
           <p class="eyebrow">CREATE THE NEXT STORY</p>
           <h1>動き出す人のための、1ページサイト。</h1>
