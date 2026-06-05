@@ -3,476 +3,429 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>未経験歓迎の求人サイト | はたらくチャンス</title>
+    <title>ONE PAGE RECRUIT SITE</title>
     <style>
       :root {
-        --bg: #f7f9fc;
+        --bg: #f6f3ee;
+        --ink: #161616;
+        --muted: #66615a;
+        --line: rgba(22, 22, 22, 0.12);
         --card: #ffffff;
-        --primary: #1f6feb;
-        --text: #1f2937;
-        --muted: #6b7280;
-        --accent: #16a34a;
+        --accent: #ff6b35;
+        --accent-dark: #d94d1d;
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
-        font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+        font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
         background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
+        color: var(--ink);
+        line-height: 1.7;
+      }
+
+      a {
+        color: inherit;
       }
 
       .container {
-        width: min(100%, 1120px);
-        padding-inline: 14px;
-        margin: 0 auto;
+        width: min(1120px, calc(100% - 32px));
+        margin-inline: auto;
       }
 
-      header {
-        background: var(--card);
-        border-bottom: 1px solid #e5e7eb;
+      .site-header {
         position: sticky;
         top: 0;
-        z-index: 10;
+        z-index: 20;
+        background: rgba(246, 243, 238, 0.9);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
       }
 
-      .nav {
+      .header-inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 10px;
-        padding: 10px 0;
-        padding: 14px 0;
+        gap: 24px;
+        min-height: 72px;
       }
 
-      .logo {
-        font-weight: 700;
-        font-size: 1rem;
-        color: var(--primary);
+      .brand {
+        font-size: 0.95rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
       }
 
-      .top-visual {
-        padding-top: 10px;
+      .global-nav {
+        display: flex;
+        align-items: center;
+        gap: clamp(14px, 4vw, 42px);
       }
 
-      .visual-wrap {
-        border-radius: 12px;
-        font-size: 1.2rem;
-        color: var(--primary);
+      .global-nav a {
+        position: relative;
+        text-decoration: none;
+        font-size: 0.86rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
       }
 
-      .hero {
-        padding: 40px 0 56px;
-      }
-
-
-      .top-visual {
-        padding-top: 18px;
-      }
-
-      .visual-wrap {
-        border-radius: 14px;
-        overflow: hidden;
-        border: 1px solid #e5e7eb;
-        background: #fff;
-      }
-
-      .visual-wrap img {
+      .global-nav a::after {
+        position: absolute;
+        left: 0;
+        bottom: -8px;
         width: 100%;
-        height: 220px;
-        height: clamp(220px, 36vw, 430px);
-        object-fit: cover;
-        display: block;
+        height: 2px;
+        content: "";
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.25s ease;
+      }
+
+      .global-nav a:hover::after,
+      .global-nav a:focus-visible::after {
+        transform: scaleX(1);
+        transform-origin: left;
       }
 
       .hero {
-        padding: 14px 0 30px;
-      }
-
-
-      .hero-layout {
+        position: relative;
+        min-height: calc(100svh - 72px);
+        overflow: hidden;
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 12px;
+        place-items: start center;
+        color: #fff;
+        background: #101010;
       }
 
-      .hero-side-card {
-        display: none;
+      .hero-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.72;
       }
 
-      .hero-box {
-        background: linear-gradient(135deg, #eef4ff, #f6ffef);
-        border: 1px solid #e6edf7;
-        border-radius: 14px;
-        padding: 24px 16px;
-      .hero-box {
-        background: linear-gradient(135deg, #eef4ff, #f6ffef);
-        border: 1px solid #e6edf7;
-        border-radius: 16px;
-        padding: 48px 32px;
+      .hero::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.18)),
+          linear-gradient(0deg, rgba(0, 0, 0, 0.34), transparent 45%);
       }
 
-      .badge {
-        display: inline-block;
-        background: #dff4e5;
-        color: #0f6b2f;
-        font-size: 0.78rem;
-        font-weight: 700;
-        padding: 5px 10px;
-        border-radius: 999px;
-        margin-bottom: 10px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        padding: 6px 12px;
-        border-radius: 999px;
-        margin-bottom: 14px;
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        width: min(1120px, calc(100% - 32px));
+        padding: clamp(28px, 6vw, 56px) 0 96px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: #ffd7c6;
+        font-size: clamp(0.82rem, 2vw, 0.98rem);
+        font-weight: 800;
+        letter-spacing: 0.22em;
       }
 
       h1 {
+        max-width: 820px;
         margin: 0;
-        font-size: 1.6rem;
-        line-height: 1.35;
-        font-size: clamp(1.8rem, 4vw, 2.8rem);
-        line-height: 1.25;
+        font-size: clamp(2.6rem, 8vw, 6.8rem);
+        line-height: 0.98;
+        letter-spacing: -0.06em;
       }
 
-      .highlight {
-        color: var(--accent);
+      .hero-lead {
+        max-width: 620px;
+        margin: 28px 0 0;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        color: rgba(255, 255, 255, 0.9);
       }
 
-      .sub {
-        margin-top: 12px;
-        color: var(--muted);
-        font-size: 0.95rem;
+      .section {
+        padding: clamp(72px, 10vw, 124px) 0;
+        border-bottom: 1px solid var(--line);
       }
 
-      .cta-wrap {
-        margin-top: 18px;
+      .section-heading {
         display: grid;
-        gap: 10px;
-        margin-top: 14px;
-        color: var(--muted);
-        max-width: 680px;
+        gap: 12px;
+        margin-bottom: 36px;
       }
 
-      .cta-wrap {
-        margin-top: 24px;
+      .section-heading span {
+        color: var(--accent-dark);
+        font-size: 0.82rem;
+        font-weight: 900;
+        letter-spacing: 0.18em;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 4rem);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+      }
+
+      .works-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .work-card,
+      .about-card,
+      .entry-panel {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        box-shadow: 0 18px 50px rgba(22, 22, 22, 0.07);
+      }
+
+      .work-card {
+        min-height: 260px;
+        padding: 28px;
         display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
+        flex-direction: column;
+        justify-content: flex-end;
+        overflow: hidden;
       }
 
-      .btn {
-        display: inline-block;
-        text-decoration: none;
-        padding: 12px 14px;
-        border-radius: 10px;
-        font-weight: 700;
-        font-size: 0.95rem;
-        text-align: center;
-        white-space: nowrap;
-        padding: 12px 18px;
-        border-radius: 10px;
-        font-weight: 700;
+      .work-card:nth-child(1) {
+        background: linear-gradient(135deg, #ffffff, #ffe1d5);
       }
 
-      .btn-primary {
-        background: var(--primary);
-        color: #fff;
+      .work-card:nth-child(2) {
+        background: linear-gradient(135deg, #ffffff, #dff4ff);
       }
 
-      .btn-secondary {
-        background: #fff;
-        color: var(--primary);
-        border: 1px solid #c9d8f5;
+      .work-card:nth-child(3) {
+        background: linear-gradient(135deg, #ffffff, #e6f8de);
       }
 
-      .features {
-        padding: 14px 0 36px;
-        padding: 32px 0 72px;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 14px;
-      }
-
-      .card {
-        background: var(--card);
-        border: 1px solid #e5e7eb;
-        border-radius: 12px;
-        padding: 14px;
-      }
-
-      .card h3 {
-        margin: 0 0 6px;
-        font-size: 1rem;
-      }
-
-      .card p {
-        margin: 0;
-        font-size: 0.92rem;
-      }
-
-      .jobs {
-        padding-bottom: 90px;
-      }
-
-      .jobs h2 {
-        margin: 0 0 12px;
-        font-size: 1.2rem;
-        padding: 18px;
-      }
-
-      .card h3 {
-        margin: 0 0 8px;
-        font-size: 1rem;
-      }
-
-      .jobs {
-        padding-bottom: 80px;
-      }
-
-      .jobs h2 {
-        margin-bottom: 16px;
-      }
-
-      .job-list {
-        display: grid;
-        gap: 10px;
-        gap: 12px;
-      }
-
-      .job-item {
-        background: var(--card);
-        border: 1px solid #e5e7eb;
-        border-radius: 10px;
-        padding: 14px;
-        padding: 16px;
-      }
-
-      .job-item strong {
+      .work-card strong {
         display: block;
-        margin-bottom: 4px;
-        font-size: 0.98rem;
+        margin-bottom: 8px;
+        font-size: 1.25rem;
       }
 
-      .job-item span {
-        font-size: 0.9rem;
-        color: #374151;
+      .work-card p,
+      .about-card p,
+      .entry-panel p {
+        margin: 0;
+        color: var(--muted);
       }
 
-      .sp-fixed-cta {
+      .about-layout {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .about-card {
+        padding: clamp(28px, 5vw, 52px);
+      }
+
+      .about-list {
+        display: grid;
+        gap: 12px;
+        margin: 28px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .about-list li {
+        padding: 16px 18px;
+        background: rgba(255, 107, 53, 0.08);
+        border-radius: 16px;
+        font-weight: 700;
+      }
+
+      .entry-panel {
+        padding: clamp(32px, 6vw, 64px);
+        display: grid;
+        grid-template-columns: 1.2fr auto;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 56px;
+        padding: 0 28px;
+        border-radius: 999px;
+        color: #fff;
+        background: var(--accent);
+        text-decoration: none;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        box-shadow: 0 12px 26px rgba(255, 107, 53, 0.3);
+      }
+
+      .fixed-entry {
         position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
-        background: rgba(247, 249, 252, 0.95);
-        border-top: 1px solid #e5e7eb;
-      }
-
-      .sp-fixed-cta .btn {
-        width: 100%;
+        right: 22px;
+        top: 50%;
+        z-index: 30;
+        writing-mode: vertical-rl;
+        transform: translateY(-50%);
+        min-height: 168px;
+        padding: 22px 14px;
+        border-radius: 999px;
       }
 
       footer {
-        padding: 20px 0 34px;
+        padding: 28px 0;
         color: var(--muted);
         text-align: center;
-        font-size: 0.8rem;
       }
 
-      @media (min-width: 768px) {
-        .nav {
+      @media (max-width: 820px) {
+        .header-inner {
+          min-height: 64px;
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+          gap: 10px;
           padding: 12px 0;
         }
 
-        .container {
-          padding-inline: 24px;
+        .global-nav {
+          width: 100%;
+          justify-content: space-between;
+          gap: 8px;
         }
 
-        .logo {
-          font-size: 1.2rem;
+        .global-nav a {
+          font-size: 0.74rem;
         }
 
-        .visual-wrap img {
-          height: clamp(260px, 36vw, 430px);
+        .works-grid,
+        .about-layout,
+        .entry-panel {
+          grid-template-columns: 1fr;
         }
 
-        .hero {
-          padding: 30px 0 56px;
+        .fixed-entry {
+          right: 12px;
+          min-height: 132px;
+          padding: 18px 12px;
+          font-size: 0.78rem;
         }
-
-        .hero-layout {
-          grid-template-columns: 1.2fr 0.8fr;
-          align-items: stretch;
-        }
-
-        .hero-box {
-          border-radius: 16px;
-          padding: 48px 32px;
-        }
-
-        h1 {
-          font-size: clamp(1.9rem, 4vw, 2.8rem);
-          line-height: 1.25;
-        }
-
-        .cta-wrap {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 12px;
-        }
-
-        .grid {
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-          gap: 14px;
-        }
-
-        .jobs {
-          padding-bottom: 80px;
-        }
-
-        .hero-side-card {
-          background: #ffffff;
-          border: 1px solid #e5e7eb;
-          border-radius: 16px;
-          padding: 20px;
-        }
-
-        .hero-side-card h3 {
-          margin: 0 0 10px;
-          font-size: 1rem;
-        }
-
-        .hero-side-card ul {
-          margin: 0;
-          padding-left: 18px;
-          color: #374151;
-        }
-
-        .hero-side-card li + li {
-          margin-top: 8px;
-        }
-
-        .sp-fixed-cta {
-          display: none;
-        }
-        margin-bottom: 6px;
-      }
-
-      footer {
-        padding: 20px 0 36px;
-        color: var(--muted);
-        text-align: center;
-        font-size: 0.9rem;
       }
     </style>
   </head>
   <body>
-    <header>
-      <div class="container nav">
-        <div class="logo">はたらくチャンス</div>
-        <a class="btn btn-secondary" href="#jobs">求人を探す</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">ONE PAGE SITE</div>
+        <nav class="global-nav" aria-label="グローバルナビゲーション">
+          <a href="#top">TOP</a>
+          <a href="#works">WORKS</a>
+          <a href="#about">ABOUT</a>
+          <a href="#entry">ENTRY</a>
+        </nav>
       </div>
     </header>
 
-    <main>
-      <section class="top-visual" aria-label="メインビジュアル">
-        <div class="container visual-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80"
-            alt="近代的なマンション建物の外観"
-            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80"
-            alt="働く人たちが集まり笑顔で打ち合わせする様子"
-            loading="eager"
-          />
-        </div>
-      </section>
-
-      <section class="hero">
-        <div class="container hero-layout">
-          <div class="hero-box">
-        <div class="container hero-box">
-          <span class="badge">未経験大歓迎</span>
-          <h1>
-            シンプルに仕事探し。<br />
-            <span class="highlight">誰でも稼げる</span>お仕事を見つけよう
-          </h1>
-          <p class="sub">
-            はじめての方でも安心。研修あり・サポート充実の求人を厳選掲載。
-            自分に合った働き方で、今すぐ収入アップを目指せます。
+    <main id="top">
+      <section class="hero" aria-label="ファーストビュー">
+        <video
+          class="hero-video"
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1600&q=80"
+        ></video>
+        <div class="hero-content">
+          <p class="eyebrow">CREATE THE NEXT STORY</p>
+          <h1>動き出す人のための、1ページサイト。</h1>
+          <p class="hero-lead">
+            ファーストビューでは動画を全面に流し、スクロールでWORKS・ABOUT・ENTRYへ自然につながる構成です。
           </p>
-          <div class="cta-wrap">
-            <a class="btn btn-primary" href="#jobs">今すぐ求人を見る</a>
-            <a class="btn btn-secondary" href="#support">無料サポートを受ける</a>
-          </div>
-          </div>
-          <aside class="hero-side-card">
-            <h3>はじめてでも安心の3ポイント</h3>
-            <ul>
-              <li>登録は1分、スマホだけで完了</li>
-              <li>未経験向けの研修付き求人を優先表示</li>
-              <li>日払い・週払い対応の案件が豊富</li>
-            </ul>
-          </aside>
         </div>
       </section>
 
-      <section class="features" id="support">
-        <div class="container grid">
-          <article class="card">
-            <h3>履歴書サポート</h3>
-            <p>応募書類が初めてでも大丈夫。作成のポイントを丁寧に案内します。</p>
-          </article>
-          <article class="card">
-            <h3>即日応募OK</h3>
-            <p>気になる求人には最短1分で応募可能。スピーディーに仕事開始へ。</p>
-          </article>
-          <article class="card">
-            <h3>未経験向け求人多数</h3>
-            <p>経験不問・学歴不問の求人を中心に掲載。まずは一歩を踏み出せます。</p>
-          </article>
-          <article class="card">
-            <h3>高時給案件あり</h3>
-            <p>しっかり稼ぎたい方へ。短期間で収入アップを目指せる仕事も掲載中。</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="jobs" id="jobs">
+      <section class="section" id="works">
         <div class="container">
-          <h2>おすすめ求人</h2>
-          <div class="job-list">
-            <article class="job-item">
-              <strong>軽作業スタッフ（未経験歓迎）</strong>
-              <span>時給1,500円〜 / 日払い可 / 週3日〜OK</span>
+          <div class="section-heading">
+            <span>WORKS</span>
+            <h2>取り組み</h2>
+          </div>
+          <div class="works-grid">
+            <article class="work-card">
+              <strong>Brand Design</strong>
+              <p>世界観が伝わるコピーとビジュアルで、第一印象を強く残します。</p>
             </article>
-            <article class="job-item">
-              <strong>コールセンター（研修あり）</strong>
-              <span>時給1,700円〜 / マニュアル完備 / 駅チカ</span>
+            <article class="work-card">
+              <strong>Web Direction</strong>
+              <p>情報を整理し、迷わず読み進められる導線を設計します。</p>
             </article>
-            <article class="job-item">
-              <strong>データ入力事務（PC初級OK）</strong>
-              <span>時給1,600円〜 / 土日休み / 在宅相談可</span>
+            <article class="work-card">
+              <strong>Recruit Contents</strong>
+              <p>応募につながるストーリーとコンテンツを1ページに凝縮します。</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container about-layout">
+          <div class="section-heading">
+            <span>ABOUT</span>
+            <h2>私たちについて</h2>
+          </div>
+          <div class="about-card">
+            <p>
+              シンプルなページ構成でも、動画・余白・固定ボタンを活用することで印象的なサイト体験を作れます。
+              企業紹介、採用告知、キャンペーンページなど幅広い目的に合わせられるデザインです。
+            </p>
+            <ul class="about-list">
+              <li>動画で世界観をすばやく伝える</li>
+              <li>4つのナビゲーションで迷わない</li>
+              <li>右側の固定ENTRYボタンで応募導線を常時表示</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="entry">
+        <div class="container">
+          <div class="entry-panel">
+            <div>
+              <div class="section-heading">
+                <span>ENTRY</span>
+                <h2>まずはエントリー</h2>
+              </div>
+              <p>興味を持ったタイミングですぐ行動できるよう、右側にスクロール追従ボタンを設置しています。</p>
+            </div>
+            <a class="button" href="mailto:entry@example.com">ENTRY</a>
           </div>
         </div>
       </section>
     </main>
 
-    <div class="sp-fixed-cta">
-      <a class="btn btn-primary" href="#jobs">スマホでかんたん応募</a>
-    </div>
+    <a class="button fixed-entry" href="#entry" aria-label="ENTRYセクションへ移動">ENTRY</a>
 
-    <footer>© 2026 はたらくチャンス</footer>
+    <footer>
+      <small>© 2026 ONE PAGE SITE</small>
+    </footer>
   </body>
 </html>
