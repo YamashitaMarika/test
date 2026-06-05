@@ -101,7 +101,7 @@
         min-height: calc(100svh - 72px);
         overflow: hidden;
         display: grid;
-        place-items: center;
+        place-items: start center;
         color: #fff;
         background: #101010;
       }
@@ -128,7 +128,7 @@
         position: relative;
         z-index: 1;
         width: min(1120px, calc(100% - 32px));
-        padding: 96px 0;
+        padding: clamp(28px, 6vw, 56px) 0 96px;
       }
 
       .eyebrow {
