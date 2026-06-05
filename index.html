@@ -176,6 +176,15 @@
         margin-bottom: 36px;
       }
 
+      #works {
+        background: #1f6feb;
+        color: #fff;
+      }
+
+      #works .section-heading span {
+        color: #dbeafe;
+      }
+
       .section-heading span {
         color: var(--accent-dark);
         font-size: 0.82rem;
@@ -441,5 +450,17 @@
     <footer>
       <small>© 2026 ONE PAGE SITE</small>
     </footer>
+
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+
+      window.addEventListener("pageshow", () => {
+        if (!window.location.hash || window.location.hash === "#top") {
+          window.scrollTo(0, 0);
+        }
+      });
+    </script>
   </body>
 </html>
